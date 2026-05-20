@@ -180,6 +180,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize custom selects
     setupCustomSelects();
 
+    // ======================================================================
+    // Scroll Reveal Animations
+    // ======================================================================
+    const revealTargets = document.querySelectorAll(
+        '.hero-content, .hero-visual, .section-header, .feature-card, .plan-card, .about-content, .about-visual, .footer-container'
+    );
+
+    revealTargets.forEach(el => el.classList.add('reveal'));
+
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        revealTargets.forEach(el => revealObserver.observe(el));
+    } else {
+        revealTargets.forEach(el => el.classList.add('is-visible'));
+    }
+
     // ==========================================================================
     // Mobile Navigation Hamburger Toggle
     // ==========================================================================

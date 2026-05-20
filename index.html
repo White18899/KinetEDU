@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KinetEdu - Premium Student Learning Platform</title>
-    
+    <!-- WebGL Background Canvas -->
+    <canvas id="webgl-canvas"></canvas>
     <!-- Google Fonts: Outfit for Headings, Plus Jakarta Sans for Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +15,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- WebGL Background Canvas -->
-    <canvas id="webgl-canvas"></canvas>
+
 
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -62,7 +62,7 @@
             
             <div class="hero-visual">
                 <!-- 3D Tilting Card Visual -->
-                <div class="glass-card main-stats-card" data-tilt data-tilt-max="15" data-tilt-glare data-tilt-max-glare="0.3">
+                <div class="glass-card main-stats-card">
                     <div class="stats-header">
                         <h3>Student Dashboard</h3>
                         <span class="stats-status">Live</span>
@@ -101,28 +101,28 @@
             
             <div class="features-grid">
                 <!-- Feature 1 -->
-                <div class="feature-card glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <div class="feature-card glass-card">
                     <div class="feature-icon icon-ai">🤖</div>
                     <h3>AI Doubt Solver</h3>
                     <p>Instant answers and deep explanations for complex formulas, code, or theories, customized to your syllabus.</p>
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="feature-card glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <div class="feature-card glass-card">
                     <div class="feature-icon icon-book">📄</div>
                     <h3>PYQ & Syllabus Hub</h3>
                     <p>Access and download previous year question papers categorized by state board, university, and semester.</p>
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="feature-card glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <div class="feature-card glass-card">
                     <div class="feature-icon icon-trophy">🏆</div>
                     <h3>Weekly Quizzes</h3>
                     <p>Participate in online mock exams and subject-specific quizzes to win certifications and rewards.</p>
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="feature-card glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+                <div class="feature-card glass-card">
                     <div class="feature-icon icon-chart">📊</div>
                     <h3>Progress Tracker</h3>
                     <p>Visually track your syllabus completion rate and set study schedules that adapt to your examination dates.</p>
@@ -139,7 +139,7 @@
             
             <div class="plans-grid">
                 <!-- Plan 1: Free -->
-                <div class="plan-card glass-card" data-tilt data-tilt-max="8">
+                <div class="plan-card glass-card">
                     <div class="plan-badge">Basic</div>
                     <h3 class="plan-name">Free</h3>
                     <div class="plan-price">₹0<span>/month</span></div>
@@ -154,7 +154,7 @@
                 </div>
                 
                 <!-- Plan 2: Monthly (Popular) -->
-                <div class="plan-card glass-card popular" data-tilt data-tilt-max="8">
+                <div class="plan-card glass-card popular">
                     <div class="plan-badge">Popular</div>
                     <h3 class="plan-name">Monthly</h3>
                     <div class="plan-price">₹99<span>/month</span></div>
@@ -169,7 +169,7 @@
                 </div>
                 
                 <!-- Plan 3: Yearly -->
-                <div class="plan-card glass-card" data-tilt data-tilt-max="8">
+                <div class="plan-card glass-card">
                     <div class="plan-badge">Best Value</div>
                     <h3 class="plan-name">Yearly</h3>
                     <div class="plan-price">₹799<span>/year</span></div>
@@ -212,7 +212,7 @@
                     </div>
                 </div>
                 <div class="about-visual">
-                    <div class="glass-card mission-card" data-tilt data-tilt-max="10">
+                    <div class="glass-card mission-card">
                         <div class="mission-icon">🎯</div>
                         <h3>Our Core Mission</h3>
                         <p class="mission-text">
@@ -403,13 +403,11 @@
         </div>
     </div>
 
-    <!-- CDNs: Three.js and Vanilla-Tilt.js -->
+    <!-- CDNs: Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     
     <!-- Link custom JS scripts -->
     <script src="three-effects.js"></script>
-    <script src="tilt-effect.js"></script>
     <script src="cursor-effect.js"></script>
     <script src="main.js"></script>
 </body>

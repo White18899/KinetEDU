@@ -5,6 +5,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const enableTilt = false;
+    if (!enableTilt) {
+        return;
+    }
     
     // Check if VanillaTilt has been loaded successfully from the CDN
     if (typeof VanillaTilt !== 'undefined') {

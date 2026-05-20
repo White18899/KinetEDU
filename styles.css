@@ -58,6 +58,37 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 214, 186, 0.65) 0%, rgba(255, 214, 186, 0.2) 45%, rgba(255, 214, 186, 0) 70%);
+    filter: blur(6px);
+    opacity: 0.95;
+    z-index: -2;
+    pointer-events: none;
+    animation: ambient-drift 18s ease-in-out infinite;
+}
+
+body::before {
+    top: -120px;
+    left: -140px;
+    animation-delay: -4s;
+}
+
+body::after {
+    bottom: -160px;
+    right: -120px;
+    width: 620px;
+    height: 620px;
+    background: radial-gradient(circle, rgba(255, 127, 80, 0.35) 0%, rgba(255, 127, 80, 0.12) 45%, rgba(255, 127, 80, 0) 70%);
+    animation-duration: 24s;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -94,11 +125,73 @@ main {
     border-radius: 28px;
     box-shadow: var(--shadow-md);
     transition: var(--transition-smooth);
+    transform: translateZ(0);
 }
 
 .glass-card:hover {
     border-color: var(--color-primary-light);
     box-shadow: var(--shadow-lg);
+    transform: translateY(-10px) scale(1.02);
+}
+
+.btn,
+.nav-link,
+.logo {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.btn:hover,
+.nav-link:hover,
+.logo:hover {
+    transform: translateY(-4px);
+}
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(36px) scale(0.97);
+    filter: blur(8px);
+    transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
+    will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+@keyframes ambient-drift {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(60px, -70px, 0) scale(1.1);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+    }
+
+    .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    .glass-card:hover,
+    .btn:hover,
+    .nav-link:hover,
+    .logo:hover {
+        transform: none;
+    }
 }
 
 /* Typography & Heading Styles */
@@ -273,7 +366,8 @@ main {
     height: 8px;
     border-radius: 50%;
     background-color: var(--color-primary);
-    bottom: 6px;
+    top: 50%;
+    transform: translateY(-50%);
     right: -12px;
 }
 
@@ -343,7 +437,7 @@ main {
 
 .hero-section {
     display: grid;
-    grid-template-cols: 1.2fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 48px;
     align-items: center;
     padding: 100px 0 60px;

@@ -6,7 +6,7 @@
 
 (function() {
     let scene, camera, renderer, particleSystem;
-    let particlesCount = 1200;
+    let particlesCount = 600;
     let positions, velocities, colors, basePositions;
     let mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
     
@@ -93,7 +93,7 @@
 
         // 6. Create Material
         const material = new THREE.PointsMaterial({
-            size: 2.2,
+            size: 1.2,
             vertexColors: true,
             map: particleTexture,
             transparent: true,
